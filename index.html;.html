@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DragonYe</title>
-  <meta name="description" content="DragonYe 的个人终端风格网站" />
+  <meta name="description" content="DragonYe 的终端风格个人网站" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -23,6 +23,7 @@
     a {
       color: #00ffff;
       text-decoration: underline;
+      transition: color 0.3s;
     }
     a:hover {
       color: #00ffcc;
@@ -30,30 +31,54 @@
   </style>
 </head>
 <body class="p-6">
-  <div class="max-w-3xl mx-auto">
-    <h1 class="text-3xl mb-4">DragonYe@terminal:~$ <span class="cursor">whoami</span></h1>
+  <main class="max-w-2xl mx-auto">
+    <h1 class="text-3xl mb-6">
+      <span class="text-green-400">DragonYe@terminal</span>:~$ <span class="cursor">whoami</span>
+    </h1>
 
-    <p class="mb-6 ml-4">
-      🐉 DragonYe，一名独立开发者 / 创作者，专注于 AI、视觉、交互的结合。<br />
-      喜欢终端风格，沉迷设计与未来技术。
-    </p>
+    <section class="mb-10 ml-4 leading-relaxed space-y-2">
+      <p>🐉 <strong class="text-green-300">DragonYe</strong>，一名热爱设计与编程的独立开发者 / 创作者。</p>
+      <p>我探索 <span class="text-blue-300">AI + 视觉 + 交互</span> 的边界，沉迷未来感、终端美学与开源精神。</p>
+      <p>这里是我的数字据点，也是一段不断更新的终端会话。</p>
+    </section>
 
-    <h2 class="text-2xl mt-8 mb-2">🧠 Projects</h2>
-    <ul class="ml-6 list-disc">
-      <li><a href="https://pcnm2yx623sv.feishu.cn/wiki/C5RUwed6ci13oekSDzbcwq8knxd" target="_blank">AI2N - 开源 AI 工具社区</a></li>
-      <li><a href="#">终端风格个人主页生成器（即将上线）</a></li>
-    </ul>
+    <section class="mb-10">
+      <h2 class="text-2xl mb-3 border-b border-gray-600 pb-1">🧠 Projects</h2>
+      <ul class="ml-6 list-disc space-y-2">
+        <li><a href="https://github.com/dragonye/ai2n" target="_blank">AI2N - 开源 AI 工具社区</a></li>
+        <li><a href="#">终端风格个人主页生成器（即将上线）</a></li>
+      </ul>
+    </section>
 
-    <h2 class="text-2xl mt-8 mb-2">📫 联系我</h2>
-    <ul class="ml-6 list-disc">
-      <li>Email: <a href="mailto:dragonye@proton.me">dragonye@proton.me</a></li>
-      <li>GitHub: <a href="https://github.com/dragonye" target="_blank">github.com/dragonye</a></li>
-      <li>微博 / 微信公众号：DragonYe</li>
-    </ul>
+    <section class="mb-10">
+      <h2 class="text-2xl mb-3 border-b border-gray-600 pb-1">🧰 Skills</h2>
+      <ul class="ml-6 list-disc space-y-1">
+        <li>ComfyUI / Stable Diffusion / AIGC 工具链</li>
+        <li>Web 全栈：Tailwind、Vue、Node</li>
+        <li>图形交互 & 算法设计</li>
+      </ul>
+    </section>
 
-    <footer class="mt-12 text-sm text-gray-500">
-      © 2025 DragonYe | Built with love in the terminal.
+    <section class="mb-10">
+      <h2 class="text-2xl mb-3 border-b border-gray-600 pb-1">📡 Now</h2>
+      <p class="ml-6 leading-relaxed">
+        正在构建 <strong class="text-green-300">AI2N</strong> —— 一个聚焦 AI 工具与创作者生态的开源社区。<br/>
+        同时在筹划一套终端风格网站生成工具，让每个人都能拥有自己的黑客主页。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl mb-3 border-b border-gray-600 pb-1">📫 联系我</h2>
+      <ul class="ml-6 list-disc space-y-2">
+        <li>Email: <a href="mailto:dragonye@proton.me">dragonye@proton.me</a></li>
+        <li>GitHub: <a href="https://github.com/dragonye" target="_blank">github.com/dragonye</a></li>
+        <li>微博 / 微信公众号：<span class="text-pink-300">DragonYe</span></li>
+      </ul>
+    </section>
+
+    <footer class="mt-16 text-sm text-gray-500 border-t border-gray-700 pt-4">
+      © 2025 DragonYe | Coded in the terminal, with caffeine & curiosity.
     </footer>
-  </div>
+  </main>
 </body>
 </html>
