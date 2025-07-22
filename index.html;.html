@@ -1,85 +1,77 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DragonYe 的终端主页</title>
+    <title>DragonYe</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
-        font-family: monospace;
-        background-color: #0f0f0f;
-        color: #f1f1f1;
-      }
-      .cursor::after {
-        content: "_";
-        animation: blink 1s infinite;
+      .cursor-blink {
+        animation: blink 1s step-start infinite;
       }
       @keyframes blink {
-        0%, 50%, 100% {
-          opacity: 1;
-        }
-        25%, 75% {
+        50% {
           opacity: 0;
         }
       }
-      a {
-        text-decoration: underline;
-        color: #38bdf8;
-      }
-      a:hover {
-        color: #ffffff;
-      }
     </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('nav a');
+        const path = window.location.pathname;
+        links.forEach((link) => {
+          if (link.getAttribute('href') === path) {
+            link.classList.add('text-white', 'bg-gray-800', 'rounded');
+          } else {
+            link.classList.remove('text-white', 'bg-gray-800');
+          }
+        });
+
+        // 移动端菜单开关
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      });
+    </script>
   </head>
-  <body class="p-6">
+  <body class="bg-gray-900 text-gray-100 font-mono min-h-screen">
     <!-- 导航栏 -->
-    <nav class="mb-8 text-green-400">
-      <div class="max-w-3xl mx-auto">
-        <p>
-          DragonYe@terminal:~$ 
-          <a href="#intro" class="hover:text-green-200">cat intro.txt</a> |
-          <a href="#projects" class="hover:text-green-200">ls projects/</a> |
-          <a href="#contact" class="hover:text-green-200">ping me</a>
-        </p>
+    <header class="bg-gray-800">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <h1 class="text-xl font-bold tracking-wide">DragonYe</h1>
+        <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white">
+          ☰
+        </button>
+        <nav
+          id="menu"
+          class="hidden md:flex space-x-4 text-sm md:text-base transition-all"
+        >
+          <a href="/" class="hover:text-white px-3 py-1">主页</a>
+          <a href="/about" class="hover:text-white px-3 py-1">关于我</a>
+          <a href="/projects" class="hover:text-white px-3 py-1">项目</a>
+          <a href="/contact" class="hover:text-white px-3 py-1">联系</a>
+        </nav>
       </div>
-    </nav>
+    </header>
 
-    <div class="max-w-3xl mx-auto">
-      <!-- Intro -->
-      <h1 id="intro" class="text-3xl mb-6">
-        <span class="text-green-400">DragonYe@terminal</span>:~$ <span class="cursor">whoami</span>
-      </h1>
-      <p class="mb-8 ml-4 leading-relaxed">
-        🐉 <strong class="text-green-300">DragonYe</strong>，一名独立开发者 / 创作者，专注于 <span class="text-blue-300">AI、视觉、交互</span> 的融合实践。<br />
-        擅长用极简方式构建表达系统，沉迷终端美学，也喜欢把设计变成工具。
-      </p>
+    <!-- 主体内容 -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+      <section class="text-lg leading-relaxed">
+        <p class="mb-6">👋 你好，我是 <span class="text-green-400">DragonYe</span>。</p>
+        <p class="mb-6">我是一名专注于 AIGC 与视觉内容设计的创作者，热衷于探索技术与创意的交汇点。</p>
+        <p class="mb-6">目前专注于图像生成、AI 视频剪辑与创意视觉系统的研究与实践，致力于打造简洁高效的视觉表达。</p>
+        <p class="mb-6">你可以在导航栏中找到关于我的更多信息，或通过联系页与我取得联系。</p>
+        <p class="text-green-400 mt-10">
+          > 欢迎来到我的世界 <span class="cursor-blink">▍</span>
+        </p>
+      </section>
+    </main>
 
-      <!-- Projects -->
-      <h2 id="projects" class="text-2xl mt-10 mb-4 border-b border-gray-600 pb-1">🧠 Projects</h2>
-      <ul class="ml-6 list-disc space-y-2">
-        <li>
-          <a href="https://github.com/dragonye/ai2n" target="_blank">
-            AI2N - 开源 AI 工具社区，聚焦 AI 创作力的普惠传播
-          </a>
-        </li>
-        <li>
-          <a href="#">终端风格个人主页生成器（即将上线）</a>
-        </li>
-      </ul>
-
-      <!-- Contact -->
-      <h2 id="contact" class="text-2xl mt-10 mb-4 border-b border-gray-600 pb-1">📫 联系我</h2>
-      <ul class="ml-6 list-disc space-y-2">
-        <li>Email: <a href="mailto:dragonye@proton.me">dragonye@proton.me</a></li>
-        <li>GitHub: <a href="https://github.com/dragonye" target="_blank">github.com/dragonye</a></li>
-        <li>微博 / 微信公众号：<span class="text-pink-300">DragonYe</span></li>
-      </ul>
-
-      <!-- Footer -->
-      <footer class="mt-16 text-sm text-gray-500 border-t border-gray-700 pt-4">
-        © 2025 DragonYe | Built with love in the terminal.
-      </footer>
-    </div>
+    <!-- 页脚 -->
+    <footer class="text-center text-sm text-gray-500 py-8">
+      &copy; 2025 DragonYe. All rights reserved.
+    </footer>
   </body>
 </html>
